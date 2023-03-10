@@ -2,6 +2,7 @@
 <img src="https://raw.githubusercontent.com/nickssilver/AirBnB_clone/main/img/hbnb_screenshot.png" alt="cover" />
 
 AirBnB clone - The console
+
 This is the first step towards building the AirBnB clone. It collectively covers the fundamental concepts of higher level programming.
 The project involves creating a clone of the Airbnb website, which is an online platform that enables people to book unique accommodations around the world.
 The website allows users to search for various types of accommodations, such as apartments, villas, hotels, and hostels, and book them online.
@@ -9,6 +10,7 @@ The project is suitable for developers who want to improve their web development
 
 
 The Console
+
 command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging).
 This is the command interpreter for the Airbnb clone website, implementing a back-end system that can interpret user commands and manipulate data without a visual interface.
 It is a custom shell or command-line interface (CLI) that allows developers to interact with the website's database directly.
@@ -17,6 +19,7 @@ It is built using the Python3 programming language
 
 
 Installation:
+
 •	Clone this repository: git clone "https://github.com/git@github.com:Sommyj1/AirBnB_clone.git
 •	Access AirBnb directory: cd AirBnB_clone
 •	Run hbnb(interactively): ./console and enter command
@@ -43,7 +46,9 @@ Show all objects, or all instances of a class | ```(hbnb) all or (hbnb) all <cla
 Update an attribute of an object | ```(hbnb) update <class> <id> <attribute name> "<attribute value>" or (hbnb) <class>.update(<id>, <attribute name>, "<attribute value>")```
 
 Examples:
+
 •	In interactive mode:
+
 $ ./console.py
 (hbnb) help
 Documented commands (type help <topic>):
@@ -53,7 +58,9 @@ EOF  help  quit
 (hbnb)
 (hbnb) quit
 $
+
 •	In Non-interactive mode
+
 $ echo "help" | ./console.py
 (hbnb)
 Documented commands (type help <topic>):
@@ -74,6 +81,7 @@ $
 
 
 Models
+
 The folder models contains all the classes used in this project.
 File | Description | Attributes
 ---- | ----------- | ---------- |
