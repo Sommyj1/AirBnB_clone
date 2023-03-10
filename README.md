@@ -91,7 +91,7 @@ Amenity.py | Amenity class for future amenity information | ```Name```
 City.py | City class for future location information | ```state_id, name```
 State.py | State class for future location information |```name```
 Place.py | Place class for future accomodation information | ```city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids```
-Review.py | Review class for future user/host review information  ```place_id, user_id, text```
+Review.py | Review class for future user/host review information | ```place_id, user_id, text```
   
   File storage
   
@@ -102,9 +102,7 @@ The init.py file contains the instantiation of the FileStorage class called stor
   
   Authors📜
   
- BLESSING JOSEPH ~  joseph2blessing2015@gmail.com ~ @Sommyj1
+ BLESSING JOSEPH ~ joseph2blessing2015@gmail.com ~ @Sommyj1
  HAUWA IBRAHIM ~ hauwaibrahim71@gmail.com ~ @BossLad1
   
-  https://raw.githubusercontent.com/nickssilver/AirBnB_clone/main/img/unnamed.png
-
-  
+  <img src=" https://raw.githubusercontent.com/nickssilver/AirBnB_clone/main/img/unnamed.png" alt="cover" />
