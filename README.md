@@ -85,4 +85,26 @@ Models
 The folder models contains all the classes used in this project.
 File | Description | Attributes
 ---- | ----------- | ---------- |
-base_model.py | ```BaseModel class for all the other classes | ```id, created_at, updated_at```
+Base_model.py | BaseModel class for all the other classes | ```id, created_at, updated_at```
+User.py | User class for future user information | ```email, password, first_name, last_name```
+Amenity.py | Amenity class for future amenity information | ```Name```
+City.py | City class for future location information | ```state_id, name```
+State.py | State class for future location information |```name```
+Place.py | Place class for future accomodation information | ```city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids```
+Review.py | Review class for future user/host review information  ```place_id, user_id, text```
+  
+  File storage
+  
+  The folder engine manages the serialization and deserialization of all the data, following a JSON format.
+A FileStorage class is defined in file_storage.py with methods to follow this flow: <object> -> to_dict() -> <dictionary> -> JSON dump -> <json string> -> FILE -> <json string> -> JSON load -> <dictionary> -> <object>
+The init.py file contains the instantiation of the FileStorage class called storage, followed by a call to the method reload() on that instance. This allows the storage to be reloaded automatically at initialization, which recovers the serialized d.
+
+  
+  Authors📜
+  
+ BLESSING JOSEPH ~  joseph2blessing2015@gmail.com ~ @Sommyj1
+ HAUWA IBRAHIM ~ hauwaibrahim71@gmail.com ~ @BossLad1
+  
+  https://raw.githubusercontent.com/nickssilver/AirBnB_clone/main/img/unnamed.png
+
+  
