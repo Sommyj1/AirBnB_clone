@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""Defines the Amenity class."""
+"""
+This is 'amenity' module.
+Functions and Classes:
+    class Amenity(BaseModel):
+"""
+
+
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """Represent an amenity.
-    Attributes:
-        name (str): The name of the amenity.
-    """
+    """reprensing an amenity"""
 
     name = ""

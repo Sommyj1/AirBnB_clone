@@ -1,49 +1,74 @@
 #!/usr/bin/python3
-"""Defines the BaseModel class."""
-import models
-from uuid import uuid4
+"""
+This is the  'base_model' module.
+Functions and Classes:
+    class BaseModel
+"""
+
+
+import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
-    """Represents the BaseModel of the HBnB project."""
+    """Base model that defines all common
+    attributes/methods for other classes
+    Methods:
+        __init__(self, *args, **kwargs)
+        __str__(self)
+        __save(self)
+        __repr__(self)
+        to_dict(self)
+    """
 
     def __init__(self, *args, **kwargs):
-        """Initialize a new BaseModel.
-        Args:
-            *args (any): Unused.
-            **kwargs (dict): Key/value pairs of attributes.
+        """initializes all the attributes of this class
         """
-        tform = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
-        if len(kwargs) != 0:
+        if kwargs:
+            d = "%Y-%m-%dT%H:%M:%S.%f"
             for k, v in kwargs.items():
-                if k == "created_at" or k == "updated_at":
-                    self.__dict__[k] = datetime.strptime(v, tform)
-                else:
-                    self.__dict__[k] = v
+                if k == 'created_at' or k == 'updated_at':
+                    v = datetime.strptime(kwargs[k], d)
+                if k != '__class__':
+                    setattr(self, k, v)
         else:
-            models.storage.new(self)
-
-    def save(self):
-        """Update updated_at with the current datetime."""
-        self.updated_at = datetime.today()
-        models.storage.save()
-
-    def to_dict(self):
-        """Return the dictionary of the BaseModel instance.
-        Includes the key/value pair __class__ representing
-        the class name of the object.
-        """
-        rdict = self.__dict__.copy()
-        rdict["created_at"] = self.created_at.isoformat()
-        rdict["updated_at"] = self.updated_at.isoformat()
-        rdict["__class__"] = self.__class__.__name__
-        return rdict
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+            storage.new(self)
 
     def __str__(self):
-        """Return the print/str representation of the BaseModel instance."""
-        clname = self.__class__.__name__
-        return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
+        """returns a string of info about the model
+        """
+        return ('[{}] ({}) {}'.
+                format(self.__class__.__name__, self.id, self.__dict__))
+
+    def __repr__(self):
+        """returns a string representation
+        """
+        return self.__str__()
+
+    def save(self):
+        """save to file"""
+
+        self.updated_at = datetime.now()
+        storage.save()
+
+    def to_dict(self):
+        """creates a new dictionary representation of an instance
+        with datetimes converted to strings
+        """
+        my_dict = {}
+
+        for k, values in self.__dict__.items():
+            if k == "created_at" or k == "updated_at":
+                my_dict[k] = values.strftime("%Y-%m-%dT%H:%M:%S.%f")
+            else:
+                if not values:
+                    pass
+                else:
+                    my_dict[k] = values
+        my_dict['__class__'] = self.__class__.__name__
+
+        return my_dict
