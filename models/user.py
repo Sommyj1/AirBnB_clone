@@ -9,7 +9,10 @@ Functions and Classes:
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
-    """representing a state"""
+class User(BaseModel):
+    """Class for managing user objects"""
 
-    name = ""
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
